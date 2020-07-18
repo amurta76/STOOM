@@ -1,27 +1,34 @@
 package com.murta.stoom.service;
 
 import com.murta.stoom.entity.Adress;
-import model.GoogleMapsModel;
+import com.murta.stoom.model.GoogleMapsModel;
 import org.apache.http.client.utils.URIBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
-import util.CommonsUtil;
-import util.GsonUtil;
+import com.murta.stoom.util.CommonsUtil;
+import com.murta.stoom.util.GsonUtil;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class GoogleMapsService {
+    HttpService httpService;
+
+    public GoogleMapsService(HttpService httpService) {
+        this.httpService = httpService;
+    }
 
     private final String chaveAcessso = "AIzaSyDTK0igIQTCi5EYKL9tzOIJ9N6FUASGZos";
 
     public void getPositon(Adress adress) throws InterruptedException, IOException, URISyntaxException {
 
-        String parametros = adress.getStreetName() + " " + adress.getNumber() + " " + adress.getComplement() + " " +
+        String endereco = adress.getStreetName() + " " + adress.getNumber() + " " + adress.getComplement() + " " +
                 adress.getNeighbourhood() + " " + adress.getCity() + " " + adress.getState() + " " +
                 adress.getCountry() + " " + adress.getZipcode();
 
@@ -29,9 +36,11 @@ public class GoogleMapsService {
 
         HttpResponse<String> response = null;
 
+        Map<String, String> parametros = new HashMap<>(0);
+        parametros.put("key", chaveAcessso);
+        parametros.put("address", endereco );
 
-        response = getStringHttpResponse("https://maps.googleapis.com/maps/api/geocode/json", parametros, chaveAcessso, client);
-
+        response = httpService.getStringHttpResponse("https://maps.googleapis.com/maps/api/geocode/json", parametros, client);
 
         GoogleMapsModel googleMapsModel = GsonUtil.fromJson(response.body(), GoogleMapsModel.class);
 
@@ -42,22 +51,6 @@ public class GoogleMapsService {
 
     }
 
-    private static HttpResponse<String> getStringHttpResponse(String urlServidor, String parametros,
-                                                              String chaveAcesso, HttpClient client) throws IOException, InterruptedException, URISyntaxException {
-        HttpRequest request;
 
-
-        URIBuilder ub = new URIBuilder(urlServidor);
-        ub.addParameter("address", parametros);
-        ub.addParameter("key", chaveAcesso);
-
-        request = HttpRequest.newBuilder()
-                .setHeader(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded")
-                .uri(ub.build())
-                .build();
-
-        return client.send(request,
-                HttpResponse.BodyHandlers.ofString());
-    }
 
 }

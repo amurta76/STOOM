@@ -1,8 +1,9 @@
-package model;
+package com.murta.stoom.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
@@ -45,8 +46,8 @@ public class GoogleMapsModel {
     @Getter
     @Setter
     public class Location {
-        private Double lat;
-        private Double lng;
+        private BigDecimal lat;
+        private BigDecimal lng;
     }
 
     @Getter

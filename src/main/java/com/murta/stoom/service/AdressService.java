@@ -7,7 +7,7 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import util.CommonsUtil;
+import com.murta.stoom.util.CommonsUtil;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

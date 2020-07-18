@@ -1,4 +1,4 @@
-package util;
+package com.murta.stoom.util;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;

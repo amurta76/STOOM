@@ -10,8 +10,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 /**
@@ -60,8 +62,10 @@ public class Adress {
     @Size(max=8, min = 8)
     private String zipcode;
 
-    private Double latitude;
+   // @Digits(integer = 10 /*precision*/, fraction = 2 /*scale*/)
+    private BigDecimal latitude;
 
-    private Double longitude;
+    //@Digits(integer = 10 /*precision*/, fraction = 2 /*scale*/)
+    private BigDecimal longitude;
 
 }
