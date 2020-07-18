@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "8b12a625-f5c9-4a40-a6db-59b7ce0c39a3",
+		"name": "Stoom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"number\": \"47\"} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/endereco/listar",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"endereco",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": \"c04fccc0-ece4-4571-8b15-f0cb8e56e3ce\",\r\n        \"streetName\": \"Zerilo Pereira Lopes\",\r\n        \"number\": \"477\",\r\n        \"complement\": \"casa 55\",\r\n        \"neighbourhood\": \"Shop. Dom Pedro\",\r\n        \"city\": \"Campinas\",\r\n        \"state\": \"SP\",\r\n        \"country\": \"Brasil\",\r\n        \"zipcode\": \"13087757\",\r\n        \"latitude\": null,\r\n        \"longitude\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/endereco",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"endereco"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n\r\n{   \r\n    \"streetName\":\"Zerilo Pereira Lopes\",\r\n    \"number\":\"477\",\r\n    \"complement\":    \"casa 55\",\r\n    \"neighbourhood\": \"Pq Alto Taquaral\"     ,\r\n    \"city\":    \"Campinas\",\r\n    \"state\":    \"SP\",\r\n    \"country\":   \"Brasil\" ,\r\n    \"zipcode\": \"13087757\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/endereco",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"endereco"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"c04fccc0-ece4-4571-8b15-f0cb8e56e3ce\",\r\n        \"streetName\": \"Zerilo Pereira Lopes\",\r\n        \"number\": \"477\",\r\n        \"complement\": \"casa 55\",\r\n        \"neighbourhood\": \"Shop. Dom Pedro\",\r\n        \"city\": \"Campinas\",\r\n        \"state\": \"SP\",\r\n        \"country\": \"Brasil\",\r\n        \"zipcode\": \"13087757\",\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"hibernateLazyInitializer\": {}\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/endereco/",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"endereco",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/endereco/c04fccc0-ece4-4571-8b15-f0cb8e56e3ce",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"endereco",
+						"c04fccc0-ece4-4571-8b15-f0cb8e56e3ce"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MapsTeste",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://maps.googleapis.com/maps/api/geocode/json?address=Zerillo Pereira Lopes 477  Campinas  SP Brasil 13087757&key=AIzaSyDTK0igIQTCi5EYKL9tzOIJ9N6FUASGZos",
+					"protocol": "https",
+					"host": [
+						"maps",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"geocode",
+						"json"
+					],
+					"query": [
+						{
+							"key": "ss",
+							"value": "ss",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Zerillo Pereira Lopes 477  Campinas  SP Brasil 13087757"
+						},
+						{
+							"key": "key",
+							"value": "AIzaSyDTK0igIQTCi5EYKL9tzOIJ9N6FUASGZos"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
