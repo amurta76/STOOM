@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.murta</groupId>
-    <artifactId>Stoom</artifactId>
+    <artifactId>stoom</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Stoom</name>
     <description>Teste de Qualificação Backend Stoom</description>
